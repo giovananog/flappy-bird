@@ -1,5 +1,5 @@
 body {
-    background-color: red;
+    background-color: rgb(239, 239, 216);
     overflow: hidden;
     margin: 0;
 }
@@ -11,8 +11,10 @@ body {
     border: 5px black solid;
     top: 0px;
     position: relative;
-    background-color: rgb(176, 244, 244);
+    background: linear-gradient(to left, #87CEEB, #B0E0E6, #c5edf3, #cef1f6, #dcf5f9);
     overflow: hidden;
+    background-size: 200% 100%;
+    animation: move_sky 20s linear infinite;
 }
 
 .bird {
@@ -33,9 +35,11 @@ body {
     width: 10em;
     height: 30%;
     top: 0;
-    background-color: greenyellow;
+    background-image: url("images/top-pipe.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     right: -10em;
-    border: 3px solid black;
 }
 
 .bottom-pipe {
@@ -43,9 +47,11 @@ body {
     width: 10em;
     height: 29%;
     bottom: 0;
-    background-color: greenyellow;
+    background-image: url("images/bottom-pipe.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     right: -10em;
-    border: 3px solid black;
 }
 
 .score {
@@ -73,4 +79,13 @@ body {
   100% {
     transform: translateY(25px);
   }
+}
+
+@keyframes move_sky {
+  0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
