@@ -76,3 +76,36 @@ function animatePipes() {
 
 
 animatePipes();
+
+
+function areElementsOverlapping(element1, element2) {
+    const rect1 = element1.getBoundingClientRect();
+    const rect2 = element2.getBoundingClientRect();
+
+    return (
+        rect1.top < rect2.bottom &&
+        rect1.bottom > rect2.top &&
+        rect1.left < rect2.right &&
+        rect1.right > rect2.left
+    );
+}
+
+function check_collision() {
+    var birdElement = document.querySelector('.bird');
+    var topPipes = document.querySelectorAll('.top-pipe');
+    var bottomPipes = document.querySelectorAll('.bottom-pipe');
+
+    topPipes.forEach( function(pipe) {
+        if (areElementsOverlapping(birdElement, pipe)) {
+            alert("you lose")
+        }
+    });
+
+    bottomPipes.forEach( function(pipe) {
+        if (areElementsOverlapping(birdElement, pipe)) {
+            alert("you lose")
+        }
+    });
+}
+
+setInterval(check_collision, 100)
