@@ -60,6 +60,13 @@ function animatePipes() {
         
         cloneBottom.style.right = 0
         cloneTop.style.right = 0
+ 
+        bottomHeight = Math.floor(Math.random() * 40)
+        cloneBottom.style.height = bottomHeight + "%"
+
+        topHeight = Math.floor(Math.random() * 40)
+        cloneTop.style.height = topHeight + "%"
+
         document.querySelector('.container').appendChild(cloneTop);
         document.querySelector('.container').appendChild(cloneBottom);
 
