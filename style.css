@@ -1,0 +1,43 @@
+body {
+    background-color: red;
+}
+
+.container {
+    background-color: rgb(176, 244, 244);
+    margin: 10vh auto;
+    width: 80em;
+    height: 80vh;
+    border: 5px black solid;
+    top: 0px;
+    position: relative;
+}
+
+.bird {
+    width: 2.8em;
+    height: 2.8em;
+    background-image: url("images/bird.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 20em;
+    left: 20em;
+}
+
+
+
+
+@keyframes fly_animation {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(15px);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(25px);
+  }
+}
