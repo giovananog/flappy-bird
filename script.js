@@ -1,3 +1,5 @@
+var score = -2;
+
 document.addEventListener('keydown', function (e) {
     var birdElement = document.querySelector('.bird');
 
@@ -55,6 +57,9 @@ function animatePipes() {
 
     if(parseInt(right1) >= parseInt(window.getComputedStyle(topPipes[(topPipes.length)-1]).getPropertyValue('width')) * 2) {
         right1 = 0;
+        score += 1
+
+        score >= 0 ? document.querySelector('.score').innerText = score : document.querySelector('.score').innerText = 0
         cloneTop = topPipes[(topPipes.length)-1].cloneNode(true);
         cloneBottom = bottomPipes[(bottomPipes.length)-1].cloneNode(true);  
         
