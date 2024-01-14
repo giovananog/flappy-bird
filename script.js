@@ -42,7 +42,7 @@ function animatePipes() {
     topPipes.forEach(function(pipe) {
         var pipeStyle = window.getComputedStyle(pipe);
         var right = parseInt(pipeStyle.getPropertyValue('right'));
-        pipe.style.right = right + 3 + 'px';
+        pipe.style.right = right + 3 + score + 'px';
     });
 
     var bottomPipes = document.querySelectorAll('.bottom-pipe');
@@ -50,7 +50,7 @@ function animatePipes() {
     bottomPipes.forEach(function(pipe) {
         var pipeStyle = window.getComputedStyle(pipe);
         var right = parseInt(pipeStyle.getPropertyValue('right'));
-        pipe.style.right = right + 3 + 'px';
+        pipe.style.right = right + 3 + score + 'px';
     });
     
     right1 += topPipes[(topPipes.length)-1].style.right;
@@ -66,10 +66,10 @@ function animatePipes() {
         cloneBottom.style.right = 0
         cloneTop.style.right = 0
  
-        bottomHeight = Math.floor(Math.random() * 40)
+        bottomHeight = Math.floor(Math.random() * (40 - score) + score)
         cloneBottom.style.height = bottomHeight + "%"
 
-        topHeight = Math.floor(Math.random() * 40)
+        topHeight = Math.floor(Math.random() * (40 - score) + score)
         cloneTop.style.height = topHeight + "%"
 
         document.querySelector('.container').appendChild(cloneTop);
@@ -102,13 +102,13 @@ function check_collision() {
 
     topPipes.forEach( function(pipe) {
         if (areElementsOverlapping(birdElement, pipe)) {
-            alert("you lose")
+            alert("you lost the game")
         }
     });
 
     bottomPipes.forEach( function(pipe) {
         if (areElementsOverlapping(birdElement, pipe)) {
-            alert("you lose")
+            alert("you lost the game")
         }
     });
 }
