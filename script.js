@@ -31,3 +31,41 @@ function animateBird() {
 
 
 animateBird();
+
+function animatePipes() {
+    var right1 = 0;
+    var topPipes = document.querySelectorAll('.top-pipe');
+    var cloneTop, cloneBottom;
+
+    topPipes.forEach(function(pipe) {
+        var pipeStyle = window.getComputedStyle(pipe);
+        var right = parseInt(pipeStyle.getPropertyValue('right'));
+        pipe.style.right = right + 3 + 'px';
+    });
+
+    var bottomPipes = document.querySelectorAll('.bottom-pipe');
+
+    bottomPipes.forEach(function(pipe) {
+        var pipeStyle = window.getComputedStyle(pipe);
+        var right = parseInt(pipeStyle.getPropertyValue('right'));
+        pipe.style.right = right + 3 + 'px';
+    });
+    
+    right1 += topPipes[(topPipes.length)-1].style.right;
+
+    if(parseInt(right1) >= parseInt(window.getComputedStyle(topPipes[(topPipes.length)-1]).getPropertyValue('width')) * 2) {
+        right1 = 0;
+        cloneTop = topPipes[(topPipes.length)-1].cloneNode(true);
+        cloneBottom = bottomPipes[(bottomPipes.length)-1].cloneNode(true);  
+        
+        cloneBottom.style.right = 0
+        cloneTop.style.right = 0
+        document.querySelector('.container').appendChild(cloneTop);
+        document.querySelector('.container').appendChild(cloneBottom);
+
+    }
+    requestAnimationFrame(animatePipes);
+}
+
+
+animatePipes();
