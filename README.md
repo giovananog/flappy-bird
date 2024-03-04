@@ -2,7 +2,7 @@
 
 This is a simple implementation of the classic Flappy Bird game using HTML, CSS, and JavaScript.
 
-![Flappy Bird](iamges/image.png)
+![Flappy Bird](images/image.png)
 
 ## Game Controls
 
